@@ -1,16 +1,34 @@
-import React, { Component } from 'react';
+/**
+ * Created by Shahen Kosyan on 3/1/17.
+ */
+
+import React, {Component} from 'react';
 import './app.css';
+import Search from './search';
+import FilteredList from './filteredList';
+
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.state = {
+      filter: ''
+    };
+  }
+
+  handleInputChange(e) {
+    this.setState({
+      filter: e.target.value
+    });
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="component">
+        <h1>Filtered List</h1>
+        <Search onInputChange={this.handleInputChange} />
+        <FilteredList filter={this.state.filter} />
       </div>
     );
   }

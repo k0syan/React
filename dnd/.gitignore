@@ -1,0 +1,19 @@
+### OSX ###
+.DS_Store
+
+### JetBrains ###
+.idea/
+
+### Node ###
+/node_modules
+
+### Tests ###
+/coverage
+
+### Production ###
+/build
+
+### Other ###
+.env
+npm-debug.log*
+yarn-debug.log*

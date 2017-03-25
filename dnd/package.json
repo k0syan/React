@@ -1,13 +1,13 @@
 {
-  "name": "Filtered-List",
+  "name": "dnd",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "react-scripts": "latest"
-  },
   "dependencies": {
-    "react": "latest",
-    "react-dom": "latest"
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "react-scripts": "0.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
