@@ -1,19 +1,26 @@
-import React, { Component } from 'react';
+/**
+ * Created by Shahen Kosyan on 3/25/17.
+ */
+
+import React, {Component} from 'react';
+import Board from 'Board/Board';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.setState({
+      knightPosition: [0, 0]
+    })
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Board knightPosition={this.state.knightPosition} />
     );
   }
 }
 
 export default App;
+
