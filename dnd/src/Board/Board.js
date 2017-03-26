@@ -42,7 +42,7 @@ class Board extends Component {
     this.renderSquares();
 
     return (
-      <div className="App">
+      <div className="app">
         <h2>React DnD Tutorial</h2>
         <div className="board">
           <Square black>

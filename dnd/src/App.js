@@ -9,15 +9,11 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-
-    this.setState({
-      knightPosition: [0, 0]
-    })
   }
 
   render() {
     return (
-      <Board knightPosition={this.state.knightPosition} />
+      <Board knightPosition={[0, 0]} />
     );
   }
 }
