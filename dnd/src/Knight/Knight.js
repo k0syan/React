@@ -2,13 +2,38 @@
  * Created by Shahen Kosyan on 3/25/17.
  */
 
-import React, { Component } from 'react';
+import React, {Component, PropTypes} from 'react';
 import './Knight.css';
+import {ItemTypes} from '../Constants';
+import {DragSource} from 'react-dnd';
 
-class Knight extends Component {
-  render() {
-    return <span className="knight">♘</span>;
+const knightSource = {
+  beginDrag(props) {
+    return {};
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
   }
 }
 
-export default Knight;
+class Knight extends Component {
+  render() {
+    const {connectDragSource, isDragging} = this.props;
+    return connectDragSource(
+      <div className="knight">
+        ♘
+      </div>
+    );
+  }
+}
+
+Knight.propTypes = {
+  connectDragSource: PropTypes.func.isRequired,
+  isDragging: PropTypes.bool.isRequired
+};
+
+export default DragSource(ItemTypes.KNIGHT, knightSource, collect)(Knight);
