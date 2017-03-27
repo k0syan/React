@@ -5,6 +5,7 @@
 import React, {Component} from 'react';
 import Knight from '../Knight/Knight';
 import Square from '../Square/Square';
+import {moveKnight} from '../Game';
 import './Board.css';
 
 class Board extends Component {
@@ -14,7 +15,8 @@ class Board extends Component {
     this.renderSquare = this.renderSquare.bind(this);
   }
 
-  componentDidUpdate() {
+  handleSquareClick(toX, toY) {
+    moveKnight(toX, toY);
   }
 
 
@@ -29,7 +31,8 @@ class Board extends Component {
       null;
 
     return (
-      <div key={i}>
+      <div key={i}
+           onClick={() => this.handleSquareClick(x, y)}>
         <Square black={black}>
           {piece}
         </Square>
