@@ -3,14 +3,11 @@
  */
 
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import Board from './Board/Board';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Board knightPosition={[0, 0]} />
@@ -19,4 +16,3 @@ class App extends Component {
 }
 
 export default App;
-

@@ -11,44 +11,42 @@ class Board extends Component {
   constructor(props) {
     super(props);
 
-    this.renderSquares = this.renderSquares.bind(this);
-    this.squares = [];
-    console.log(this.props);
+    this.renderSquare = this.renderSquare.bind(this);
   }
 
-  renderSquares() {
-    console.log(this.props);
-    console.log(this.props.knightPosition);
-    for (let i = 0; i < 8; ++i) {
-      let row = [];
-      for (let j = 0; j < 8; ++j) {
-        const black = (i + j) % 2 === 1;
-        const [knightX, knightY] = this.props.knightPosition;
-        const piece = (i === knightX && j === knightY) ?
-          <Knight /> :
-          null;
+  componentDidUpdate() {
+  }
 
-        row.push(
-          <Square black={black} key={"" + i + ", " + j}>
-            {piece}
-          </Square>
-        );
-      }
-      this.squares.unshift(row);
-    }
+
+  renderSquare(i) {
+    const x = i % 8;
+    const y = Math.floor(i / 8);
+    const black = (x + y) % 2 === 1;
+
+    const [knightX, knightY] = this.props.knightPosition;
+    const piece = (x === knightX && y === knightY) ?
+      <Knight /> :
+      null;
+
+    return (
+      <div key={i}>
+        <Square black={black}>
+          {piece}
+        </Square>
+      </div>
+    );
   }
 
   render() {
-    this.renderSquares();
+    const squares = [];
+    for (let i = 0; i < 64; i++) {
+      squares.push(this.renderSquare(i));
+    }
 
     return (
       <div className="app">
-        <h2>React DnD Tutorial</h2>
         <div className="board">
-          {this.squares}
-          {/*<Square black>*/}
-            {/*<Knight />*/}
-          {/*</Square>*/}
+          {squares}
         </div>
       </div>
     );
