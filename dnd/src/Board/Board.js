@@ -20,6 +20,7 @@ class Board extends Component {
     console.log(this.props);
     console.log(this.props.knightPosition);
     for (let i = 0; i < 8; ++i) {
+      let row = [];
       for (let j = 0; j < 8; ++j) {
         const black = (i + j) % 2 === 1;
         const [knightX, knightY] = this.props.knightPosition;
@@ -27,12 +28,13 @@ class Board extends Component {
           <Knight /> :
           null;
 
-        this.squares.push(
+        row.push(
           <Square black={black} key={"" + i + ", " + j}>
             {piece}
           </Square>
         );
       }
+      this.squares.unshift(row);
     }
   }
 
