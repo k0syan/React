@@ -22,20 +22,18 @@ class Board extends Component {
     for (let i = 0; i < 8; ++i) {
       for (let j = 0; j < 8; ++j) {
         const black = (i + j) % 2 === 1;
+        const [knightX, knightY] = this.props.knightPosition;
+        const piece = (i === knightX && j === knightY) ?
+          <Knight /> :
+          null;
+
+        this.squares.push(
+          <Square black={black} key={"" + i + ", " + j}>
+            {piece}
+          </Square>
+        );
       }
     }
-    // const black = (x + y) % 2 === 1;
-    //
-    // const [knightX, knightY] = this.props.knightPosition;
-    // const piece = (x === knightX && y === knightY) ?
-    //   <Knight /> :
-    //   null;
-    //
-    // return (
-    //   <Square black={black}>
-    //     {piece}
-    //   </Square>
-    // );
   }
 
   render() {
@@ -45,9 +43,10 @@ class Board extends Component {
       <div className="app">
         <h2>React DnD Tutorial</h2>
         <div className="board">
-          <Square black>
-            <Knight />
-          </Square>
+          {this.squares}
+          {/*<Square black>*/}
+            {/*<Knight />*/}
+          {/*</Square>*/}
         </div>
       </div>
     );
