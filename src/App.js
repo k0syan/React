@@ -4,7 +4,7 @@
 
 import React, {Component} from 'react';
 import './App.css';
-import Search from './search';
+import Search from './Search';
 import FilteredList from './FilteredList';
 
 
