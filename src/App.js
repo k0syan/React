@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Search from './search';
-import FilteredList from './filteredList';
+import FilteredList from './FilteredList';
 
 
 class App extends Component {
