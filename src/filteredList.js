@@ -3,7 +3,7 @@
  */
 
 import React, {Component} from 'react';
-import Countries from './countries';
+import Countries from './Countries';
 
 class FilteredList extends Component {
   render() {
