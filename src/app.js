@@ -3,7 +3,7 @@
  */
 
 import React, {Component} from 'react';
-import './app.css';
+import './App.css';
 import Search from './search';
 import FilteredList from './filteredList';
 
