@@ -4,7 +4,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
+import App from './App';
 import './App.css';
 
 ReactDOM.render(
