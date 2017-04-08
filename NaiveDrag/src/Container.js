@@ -27,10 +27,11 @@ const boxTarget = {
   },
 };
 
-@DragDropContext(HTML5Backend)
-@DropTarget(ItemTypes.BOX, boxTarget, connect => ({
+DragDropContext(HTML5Backend);
+DropTarget(ItemTypes.BOX, boxTarget, connect => ({
   connectDropTarget: connect.dropTarget(),
-}))
+}));
+
 export default class Container extends Component {
   static propTypes = {
     hideSourceOnDrag: PropTypes.bool.isRequired,
