@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {DropTarget, DragDropContext} from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import Container from './Container';
 import './App.css';
 
@@ -21,4 +23,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default DragDropContext(HTML5Backend)(App);

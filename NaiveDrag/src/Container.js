@@ -5,9 +5,10 @@
 import React, {Component, PropTypes} from 'react';
 import update from 'react/lib/update';
 import {DropTarget, DragDropContext} from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
 import ItemTypes from './ItemTypes';
 import Box from './Box';
+
+import flow from 'lodash/flow';
 
 const styles = {
   width: 300,
@@ -27,16 +28,17 @@ const boxTarget = {
   },
 };
 
-DragDropContext(HTML5Backend);
-DropTarget(ItemTypes.BOX, boxTarget, connect => ({
-  connectDropTarget: connect.dropTarget(),
-}));
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+  }
+}
 
-export default class Container extends Component {
-  static propTypes = {
-    hideSourceOnDrag: PropTypes.bool.isRequired,
-    connectDropTarget: PropTypes.func.isRequired,
-  };
+class Container extends Component {
+  //static propTypes = {
+  //   hideSourceOnDrag: PropTypes.bool.isRequired,
+  //   connectDropTarget: PropTypes.func.isRequired,
+  // };
 
   constructor(props) {
     super(props);
@@ -60,6 +62,7 @@ export default class Container extends Component {
 
   render() {
     const {hideSourceOnDrag, connectDropTarget} = this.props;
+    // console.log(this.props);
     const {boxes} = this.state;
 
     return connectDropTarget(
@@ -82,3 +85,7 @@ export default class Container extends Component {
     );
   }
 }
+
+export default flow(
+  DropTarget(ItemTypes.BOX, boxTarget, collect)
+)(Container);
