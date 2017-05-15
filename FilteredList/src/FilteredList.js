@@ -16,7 +16,7 @@ class FilteredList extends Component {
       }
     }
 
-    filteredCountries = filteredCountries.map((country) => {
+    filteredCountries = filteredCountries.map(country => {
       return <li key={country.code}>{country.name}</li>;
     });
 
