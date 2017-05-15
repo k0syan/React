@@ -4,7 +4,7 @@
 
 import React, {Component, PropTypes} from 'react';
 import update from 'react/lib/update';
-import {DropTarget, DragDropContext} from 'react-dnd';
+import {DropTarget} from 'react-dnd';
 import ItemTypes from './ItemTypes';
 import Box from './Box';
 
@@ -35,10 +35,10 @@ function collect(connect, monitor) {
 }
 
 class Container extends Component {
-  //static propTypes = {
-  //   hideSourceOnDrag: PropTypes.bool.isRequired,
-  //   connectDropTarget: PropTypes.func.isRequired,
-  // };
+  static propTypes = {
+    hideSourceOnDrag: PropTypes.bool.isRequired,
+    connectDropTarget: PropTypes.func.isRequired,
+  };
 
   constructor(props) {
     super(props);
