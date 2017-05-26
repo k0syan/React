@@ -62,7 +62,6 @@ class Container extends Component {
 
   render() {
     const {hideSourceOnDrag, connectDropTarget} = this.props;
-    // console.log(this.props);
     const {boxes} = this.state;
 
     return connectDropTarget(
