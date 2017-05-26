@@ -29,16 +29,6 @@ function collect(connect, monitor) {
 }
 
 class Box extends Component {
-  // static propTypes = {
-  //   connectDragSource: PropTypes.func.isRequired,
-  //   isDragging: PropTypes.bool.isRequired,
-  //   id: PropTypes.any.isRequired,
-  //   left: PropTypes.number.isRequired,
-  //   top: PropTypes.number.isRequired,
-  //   hideSourceOnDrag: PropTypes.bool.isRequired,
-  //   children: PropTypes.node,
-  // };
-
   render() {
     const {hideSourceOnDrag, left, top, connectDragSource, isDragging, children} = this.props;
     if (isDragging && hideSourceOnDrag) {
