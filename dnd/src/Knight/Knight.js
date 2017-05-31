@@ -25,7 +25,6 @@ class Knight extends Component {
   componentDidMount() {
     console.log("yaay");
   }
-
   render() {
     const {connectDragSource} = this.props;
     return connectDragSource(
