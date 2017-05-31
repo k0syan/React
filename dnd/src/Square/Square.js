@@ -6,7 +6,6 @@ import React, {Component} from 'react';
 import './Square.css';
 
 class Square extends Component {
-
   componentDidMount() {
     const {black} = this.props;
     const fill = black ? 'black' : 'white';
