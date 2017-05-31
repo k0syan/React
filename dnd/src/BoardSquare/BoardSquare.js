@@ -9,7 +9,6 @@ import {ItemTypes} from '../Constants';
 import {DropTarget} from 'react-dnd';
 import './BoardSquare.css';
 
-
 const squareTarget = {
   drop(props) {
     moveKnight(props.x, props.y);
@@ -27,7 +26,6 @@ class BoardSquare extends Component {
   render() {
     const {x, y, connectDropTarget} = this.props;
     const black = (x + y) % 2 === 1;
-
     return connectDropTarget(
       <div>
         <Square black={black}>
