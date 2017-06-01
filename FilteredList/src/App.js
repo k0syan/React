@@ -7,7 +7,6 @@ import './App.css';
 import Search from './Search';
 import FilteredList from './FilteredList';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
